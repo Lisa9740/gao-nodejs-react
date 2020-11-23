@@ -13,6 +13,9 @@ Pour l'initialisation, vous devez vérifier si vous avez bien sequelize-cli et n
 
     npm install -g nodemon
     npm install -g sequelize-cli
+    
+Ensuite pour configurer la base de donnée, vous devez créer le fichier config.json avec les eléments suivants : 
+
 
 
 ## Initialisation du projet backend :

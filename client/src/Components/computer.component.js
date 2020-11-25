@@ -1,4 +1,4 @@
-import React, { Component ,  useState } from "react";
+import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -18,14 +18,44 @@ export default class Computer extends Component {
         super(props);
         this.state = {
             hours: [],
+            attributions : {},
 
         };
     }
 
+    componentDidMount() {
+        this.initialise()
+    }
+
+
+    initialise() {
+        let tabAttribution = [];
+
+        for (let i=0; i < this.props.computer.Attributions.length; i++) {
+            let attribution = this.props.computer.Attributions[i][0]
+            tabAttribution[attribution.hour] = {
+                id: attribution.id,
+                name: attribution.Customer.firstname + " " + attribution.Customer.lastname,
+            }
+        }
+
+        this.setState({
+            attributions: tabAttribution
+        })
+
+        this.buildHoraires();
+    }
+
+    buildHoraires(){
+        for (let i = 0; i < 10; i++) {
+            this.state.hours.push({
+                index: i + 8,
+                attribution: (typeof this.state.attributions[i + 8] !== 'undefined') ? this.attributions[i + 8] : false
+            })
+        }
+    }
 
     render() {
-
-
         return (
 
             <Grid key={this.props.computer.id} item>
@@ -33,7 +63,9 @@ export default class Computer extends Component {
                     <CardContent>
                         <h1>{this.props.computer.name}</h1>
                         <div>
-
+                            {this.state.hours.map((hour, key) => (
+                               <span key={key}>{hour.index}</span>
+                            ))}
                         </div>
                     </CardContent>
                     <CardActions>
@@ -41,10 +73,6 @@ export default class Computer extends Component {
                     </CardActions>
                 </Card>
             </Grid>
-
-
         )
-
-
     }
 }

@@ -39,13 +39,15 @@ export default class AddComputer extends Component {
             setOpen: false,
             open: false,
             name: "",
+            send: false
         };
+
     }
 
 
-    addComputer() {
-        ComputersService.create({name: this.state.name}).then(response => {
-            this.state.computers.push(response.data)
+    addComputer(name) {
+        ComputersService.create({name: name}).then(response => {
+            this.props.computers.push(response.data)
             console.log(response.data)
         }).catch(e => {
             console.log(e);
@@ -53,12 +55,19 @@ export default class AddComputer extends Component {
     }
 
 
-
     render() {
+        const  handleChange = (event) => {
+            this.setState({name: event.target.value});
+        }
+        const send = () => {
+            this.addComputer(this.state.name)
+        }
 
         const handleClickOpen = () => {
             this.setState({open: true, setOpen: true});
         };
+
+
 
         const handleClose = () => {
             this.setState({open: false, setOpen: false});
@@ -79,8 +88,10 @@ export default class AddComputer extends Component {
                     autoFocus
                     margin="dense"
                     id="name"
+                    value={this.state.name}
                     label="Nouveau poste"
                     type="text"
+                    onChange={handleChange}
                     fullWidth
                 />
             </DialogContent>
@@ -88,7 +99,7 @@ export default class AddComputer extends Component {
                 <Button onClick={handleClose} color="primary">
                     Annuler
                 </Button>
-                <Button onClick={handleClose} color="primary">
+                <Button onClick={send} color="primary">
                     Ajouter
                 </Button>
             </DialogActions>

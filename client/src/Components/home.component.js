@@ -1,28 +1,24 @@
-import React, {Component, useState} from "react";
-import { withStyles } from '@material-ui/core/styles';
+import React, {Component} from "react";
+import {withStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Computer from './computer.component'
 import AddComputer from './addcomputer.component'
 import ComputersService from "../services/computers.service";
 
-import Button from "@material-ui/core/Button";
-
-
-
 import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
-    KeyboardTimePicker,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
-const useStyles = withStyles =>({
+
+const useStyles = withStyles => ({
     computerCard: {
-        margin:"100px",
+        margin: "100px",
 
     },
     computerItem: {
-      width: "600px"
+        width: "600px"
     },
     addComputerBtn: {
         marginLeft: "0px",
@@ -32,7 +28,6 @@ const useStyles = withStyles =>({
 
 
 class Home extends Component {
-
 
     constructor(props) {
         super(props);
@@ -78,18 +73,18 @@ class Home extends Component {
     render() {
 
         const {classes} = this.props
+
+        const {computers} = this.state;
+
         const handleDateChange = (date) => {
             this.setState({selectedDate: date, setSelectedDate: date});
         };
 
-
-        const {computers} = this.state;
-
         return (
-
             <Container maxWidth="lg">
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justify="right">
+                    <Grid container
+                          justify="flex-start">
                         <KeyboardDatePicker
                             disableToolbar
                             variant="inline"
@@ -105,18 +100,20 @@ class Home extends Component {
                         />
                     </Grid>
                 </MuiPickersUtilsProvider>
-           <AddComputer/>
-               <Grid container
-                      spacing={3}
-                      className={classes.computerCard}
-                >
+                <AddComputer computers={this.state.computers}/>
+                <Grid container
+                      spacing={5}
+                      className={classes.computerCard}>
                     {computers && computers.map((computer) => (
-                        <Grid className={classes.computerItem} item xs={3}>
-                        <Computer key={computer.id} computer={computer}/></Grid>
+                        <Grid className={classes.computerItem} key={computer.id}  item xs={3}>
+                            <Computer computer={computer}/>
+                        </Grid>
                     ))}
+
                 </Grid>
             </Container>
         )
     }
 }
+
 export default withStyles(useStyles)(Home)

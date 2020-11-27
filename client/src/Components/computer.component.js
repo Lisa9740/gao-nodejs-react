@@ -8,15 +8,15 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import {withStyles} from "@material-ui/core/styles";
+import AddAttribution from "./addattribution.component";
 
-const useStyles = withStyles =>({
+const useStyles = withStyles => ({
     computerCard: {
-      width: "310px"
+        width: "310px"
 
     },
     computerItemCard: {
-
-       padding:"10px"
+        padding: "10px"
     },
     addComputerBtn: {
         marginLeft: "55px",
@@ -71,10 +71,10 @@ class Computer extends Component {
     render() {
         const {classes} = this.props
         return (
-
             <Grid
-                key={this.props.computer.id} item
-                spacing={5}
+                container
+                key={this.props.computer.id}
+                spacing={3}
             >
                 <Card className={classes.computerCard}>
                     <CardContent>
@@ -82,29 +82,26 @@ class Computer extends Component {
                         <div>
                             <Grid container
                                   direction={"column"}
-
                             >
-                                    {this.state.hours.map((hour, key) => (
-                                        <Grid container
-                                              direction={"row"}
-                                              key={key}
-                                              className={classes.computerItemCard}
-                                        >
-                                        <Grid item xs={3} >
-                                            <span >{hour.index} h </span>
+                                {this.state.hours.map((hour, key) => (
+                                    <Grid container
+                                          direction={"row"}
+                                          key={key}
+                                          className={classes.computerItemCard}
+                                    >
+                                        <Grid item xs={3}>
+                                            <span>{hour.index} h </span>
                                         </Grid>
-                                            <Grid item xs={3}>
+                                        <Grid item xs={3}>
 
-                                            </Grid>
-                                            <Grid item xs={3}>
-                                                <Icon className={classes.addComputerBtn} color="primary">add_circle</Icon>
-                                            </Grid>
-
-
-
-                                       </Grid>
-                                    ))}
-
+                                        </Grid>
+                                        <Grid item xs={3}>
+                                        </Grid>
+                                        <Grid item xs={3}>
+                                            <AddAttribution/>
+                                        </Grid>
+                                    </Grid>
+                                ))}
                             </Grid>
                         </div>
                     </CardContent>
@@ -114,9 +111,8 @@ class Computer extends Component {
                 </Card>
 
             </Grid>
-
-
         )
     }
 }
+
 export default withStyles(useStyles)(Computer)

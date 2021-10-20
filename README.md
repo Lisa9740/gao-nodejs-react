@@ -7,16 +7,6 @@ Ce projet utilise les technologies suivantes :
 
     backend : Nodejs
     frontend : React
-    
-    
-Pour l'initialisation, vous devez vérifier si vous avez bien sequelize-cli et nodemon d'installer. Si ce n'est pas le cas, vous pouvez exécuter les commandes suivantes :
-
-    npm install -g nodemon
-    npm install -g sequelize-cli
-    
-Ensuite pour configurer la base de donnée, vous devez créer le fichier config.json avec les eléments suivants : 
-
-
 
 ## Initialisation du projet backend :
 
@@ -35,3 +25,7 @@ Après avoir fait un git clone de ce projet, vous devez effectué les actions su
 
 ## Lancement du projet :
   
+
+
+## TODO:
+    - adapter le projet en ajouter un .env

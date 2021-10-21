@@ -24,9 +24,8 @@ Après avoir fait un git clone de ce projet, vous devez effectué les actions su
     cd client
     npm install
 
-## Lancement du projet :
-  
-
 
 ## TODO:
-    - debug front
+    - ajouter une attribution 
+    - supprimer une attribution
+    - pagination

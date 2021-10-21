@@ -1,4 +1,3 @@
-
 const attribution = require('../models/attribution')
 const customer = require('../models/customer')
 const {Sequelize} = require("sequelize");
@@ -26,7 +25,5 @@ exports.findAll = (req, res) => {
         }).then(data => {
        res.status(200).json(data);
      })
-
-
 };
 

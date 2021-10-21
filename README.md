@@ -15,6 +15,7 @@ Après avoir fait un git clone de ce projet, vous devez effectué les actions su
     cd server
     npm install
     npm run initData
+    npm start
 
 ## Initialisation du projet frontend:
 

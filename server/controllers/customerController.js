@@ -6,7 +6,7 @@ const Op = Sequelize.Op
 // Retrieve all Customers from the database.
 exports.findAll = (req, res) => {
     const queryCustomer = req.query.query;
-   customer.findAll({
+    customer.findAll({
             attributes: ['id', 'firstname', "lastname"],
             where: {
                 [Op.or]: [

@@ -3,7 +3,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 
 const sequelize = require('../config/database');
 
-const Computer = sequelize.define('Computer', {
+const Computer = sequelize.define('Computers', {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,

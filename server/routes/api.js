@@ -7,11 +7,11 @@ const attributions = require("../controllers/attributionController.js");
 
  router.get('/computers', computers.findAll)
 
-router.post('/computers/create', computers.create)
+router.post('/computer/create', computers.create)
 
-router.post('/computers/remove', computers.delete)
+router.post('/computer/remove', computers.delete)
 
-router.get('/customers/search', customers.findAll)
+router.get('/customer/search', customers.findAll)
 
 router.get('/attributions', attributions.findAll)
 

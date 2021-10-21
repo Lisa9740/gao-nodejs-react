@@ -12,27 +12,39 @@ attribution.belongsTo(computer)
 // Create and Save a new computer
 exports.create = (req, res) => {
      computer.create(req.body).then(data =>{
-         res.status(200).json(data);
+         res.status(200).json({success: true, content: data});
      })
 };
 
 // Retrieve all Computers from the database.
 exports.findAll = (req, res) => {
-    computer.findAll({
-        attributes: ['id', 'name'],
-        include: [{
-                    model: attribution,
-                    attributes: ['id', 'date', 'hour'],
-                    required: false,
-                    include: [{
-                        model: customer,
-                        attributes: ['id', 'firstname', 'lastname'],
-                        required: false
-                    }]
+    const currentDate = req.query.date
+
+    try {
+        computer.findAll({
+            attributes: ['id', 'name'],
+            include: [{
+                model: attribution,
+                attributes: ['id', 'date', 'hour'],
+                required: false,
+                where: {
+                    date: currentDate
+                },
+                include: [{
+                    model: customer,
+                    attributes: ['id', 'firstname', 'lastname'],
+                    required: false
                 }]
-    }).then(data => {
+            }]
+        }).then(data => {
             res.status(200).json(getComputerAttributions(data));
-    });
+        });
+    } catch (e){
+        return res.status(200).json({
+            success: false,
+            message: 'Ressource indisponible',
+        })
+    }
 
 };
 

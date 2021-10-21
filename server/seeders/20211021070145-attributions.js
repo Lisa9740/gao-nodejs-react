@@ -1,13 +1,11 @@
 'use strict';
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
 
     const data = [];
+
     const currentDate = new Date();
     const tomorrow = new Date(currentDate.getTime() + 1000 * 60 * 60 * 24);
 

@@ -28,4 +28,4 @@ Après avoir fait un git clone de ce projet, vous devez effectué les actions su
 
 
 ## TODO:
-    - adapter le projet en ajouter un .env
+    - debug front

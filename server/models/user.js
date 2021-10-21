@@ -1,3 +1,4 @@
+
 'use strict';
 const {
   Model
@@ -13,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
+
   User.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,

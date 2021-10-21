@@ -1,7 +1,8 @@
-const db = require("../models");
-const attribution = db.Attribution
-const customer = db.Customer
-const Op = db.Sequelize.Op
+
+const attribution = require('../models/attribution')
+const customer = require('../models/customer')
+const {Sequelize} = require("sequelize");
+const Op = Sequelize.Op
 
 // Retrieve all Customers from the database.
 exports.findAll = (req, res) => {

@@ -1,8 +1,8 @@
-const db = require("../models");
-const computer = db.Computer
-const attribution = db.Attribution
-const customer = db.Customer
-/*const Op = db.Sequelize.Op;*/
+
+const computer = require('../models/computer');
+const attribution = require('../models/attribution')
+const customer = require('../models/customer')
+
 
 // Create and Save a new computer
 exports.create = (req, res) => {

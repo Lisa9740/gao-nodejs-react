@@ -15,8 +15,8 @@ router.get('/customers/search', customers.findAll)
 
 router.get('/attributions', attributions.findAll)
 
-router.post('/attributions/create', attributions.create)
+router.post('/attribution/create', attributions.create)
 
-router.post('/attributions/remove', attributions.delete)
+router.post('/attribution/remove', attributions.delete)
 
 module.exports = router;

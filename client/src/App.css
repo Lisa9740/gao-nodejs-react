@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+.modalStyle{
+  border-radius: 50%;
+}
+
+.modalStyle, .modalStyleClient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.modalStyleClient input {
+  margin: 10px 0 !important;
+  width: 90% !important;
+}
+.formStyle {
+  background-color: white;
+  width: 400px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.formInput {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formInput input, .autoCompleteStyle {
+  width: 80%;
+  padding: 5px 15px;
+  margin: 0 auto;
+}
+
+.formInput button, .btnStyleAttribution, .btnSpaceTop {
+  margin-top: 10px !important;
+}
+
+.formAutocomplete {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+

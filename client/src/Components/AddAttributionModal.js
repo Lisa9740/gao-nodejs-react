@@ -11,22 +11,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import {withStyles} from "@material-ui/core/styles";
 
 
-const useStyles = withStyles => ({
-    formFields: {
-        display: 'flex',
-        flexDirection: 'row'
-
-    },
-    textFields: {
-        padding: '10px',
-    },
-    addUserIcon : {
-
-    }
-
-});
-
-class AddAttribution extends Component {
+class AddAttributionModal extends Component {
 
     constructor(props) {
         super(props);
@@ -112,4 +97,4 @@ class AddAttribution extends Component {
     }
 }
 
-export default withStyles(useStyles)(AddAttribution)
+export default AddAttributionModal

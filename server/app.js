@@ -1,3 +1,5 @@
+require('dotenv').config({path: __dirname + '/.env'});
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -27,8 +29,6 @@ app.use(headerApi);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
